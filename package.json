@@ -1,26 +1,35 @@
 {
   "devDependencies": {
     "electron": "^29.1.5",
-    "electron-notification": "^1.0.0"
+    "electron-notification": "^1.0.0",
+    "electron-builder": "^20.15.1"
   },
   "name": "x3-toolbox",
   "version": "0.0.1",
   "description": "a simple toolbox hotloader for all computers",
   "main": "main.js",
+  "icon": "assets/icon.ico",
   "dependencies": {
     "electron-notification": "^1.0.0",
     "child_process": "^1.0.2"
   },
   "scripts": {
-    "test": "electron ."
+    "test": "electron .",
+    "tar": "build",
+    "build": "electron-builder"
   },
-  "keywords": [
-    "toolbox",
-    "xos",
-    "windows",
-    "linux",
-    "macintosh"
-  ],
   "author": "3hy",
-  "license": "ISC"
+  "license": "ISC",
+  "build": {
+    "productName": "X3 toolbox",
+    "appId": "x3.toolbox",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "X3-toolbox.exe"
+    }
+  }
 }

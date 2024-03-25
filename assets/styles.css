@@ -4,7 +4,17 @@
     --text-color: white;
     --text-inactive-opacity: 50%;
     --accent: red;
+    --color-on-accent: black;
 }
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    font-size: 13px;
+
+
+}
+
 
 body {
     width: 100vw;
@@ -19,6 +29,56 @@ body {
         height: 30px;
         background: var(--background);
         -webkit-app-region: drag;
+        display: flex;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            img {
+                width: 15px;
+                filter: grayscale(100%);
+            }
+
+            /*
+            
+            write function to take hex color and 
+
+            */
+
+
+        }
+
+        .title {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-weight: 600;
+        }
+
+        .version {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+
+
+            span {
+                background-color: var(--accent);
+                border-radius: 10px;
+                padding: 1px 10px;
+                box-sizing: border-box;
+                color: var(--color-on-accent);
+                font-weight: 700;
+            }
+        }
     }
 
     #banner {

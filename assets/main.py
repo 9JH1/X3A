@@ -51,6 +51,7 @@ app_config = {
         "os_release": platform.release(), 
         "ip": socket.gethostbyname(socket.gethostname()), 
         "hostname":socket.gethostname(), 
+        "username":os.getlogin(),
     }
 }
 print(app_config)

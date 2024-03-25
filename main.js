@@ -39,6 +39,7 @@ function createWindow() {
         width: 800,
         height: 500,
         fullscreenable: false,
+        maximizable: false,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -46,6 +47,7 @@ function createWindow() {
             contextIsolation: false,
             preload: path.join(__dirname, 'assets/loader.js')
         },
+        
         icon: path.join(__dirname, 'assets/icon.ico'),
         titleBarStyle: "hidden",
         titleBarOverlay: {
@@ -69,7 +71,6 @@ app.whenReady().then(() => {
         setTimeout(() => {
             (async () => {
                 appObj = await getData("")
-                console.log(appObj);
                 if (appObj == undefined) {
                     console.log("error occurred")
                     const notification = new Notification({
