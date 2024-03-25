@@ -37,7 +37,8 @@ function createWindow() {
     startServer()
     const mainWindow = new BrowserWindow({
         width: 800,
-        height: 600,
+        height: 500,
+        fullscreenable: false,
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
@@ -49,7 +50,7 @@ function createWindow() {
         titleBarStyle: "hidden",
         titleBarOverlay: {
             color: "black",
-            symbolColor: appObj["theme"]["raw"],
+            symbolColor: "white",
         },
     })
 

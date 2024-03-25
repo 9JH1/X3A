@@ -21,8 +21,3 @@ function getData(endpoint) {
         .catch((error) => { });
 }
 
-
-
-(async () => {
-    document.body.innerHTML = await getData("")
-})();

@@ -1,0 +1,41 @@
+:root {
+    --background: black;
+    --foreground: #2D2D2D;
+    --text-color: white;
+    --text-inactive-opacity: 50%;
+    --accent: red;
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    height: 100vh;
+    background-color: var(--background);
+    border: solid 1px var(--accent);
+    box-sizing: border-box;
+
+    #navbar {
+        width: 100%;
+        height: 30px;
+        background: var(--background);
+        -webkit-app-region: drag;
+    }
+
+    #banner {
+        width: 100%;
+        height: 50px;
+        background-color: red;
+    }
+
+    #inner {
+        width: 100%;
+        height: calc(100% - 110px);
+        background-color: var(--foreground);
+    }
+
+    #options {
+        width: 100%;
+        height: 30px;
+        background-color: var(--background);
+    }
+}
