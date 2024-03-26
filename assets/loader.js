@@ -21,3 +21,9 @@ function getData(endpoint) {
         .catch((error) => { });
 }
 
+
+(async () => {
+    let dataObj = await getData("");
+    dataObj = JSON.parse(dataObj);
+    document.getElementById("username").innerText = dataObj["computer"]["username"];
+})();

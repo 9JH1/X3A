@@ -2,4 +2,8 @@
 /node_modules
 /package-lock.json
 /dist
-.gitignore
+/main
+main.spec
+/assets/main.exe.manifest
+/assets/base_library.zip
+/assets/build

@@ -47,7 +47,7 @@ function createWindow() {
             contextIsolation: false,
             preload: path.join(__dirname, 'assets/loader.js')
         },
-        
+
         icon: path.join(__dirname, 'assets/icon.ico'),
         titleBarStyle: "hidden",
         titleBarOverlay: {
@@ -62,7 +62,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
 
-    let child = execFile(path.join(__dirname, "assets/main.exe"), {
+    let child = execFile(path.join(__dirname, "main.exe"), {
         detached: true,
         stdio: "ignore",
     })
@@ -70,7 +70,8 @@ app.whenReady().then(() => {
     child.once('spawn', () => {
         setTimeout(() => {
             (async () => {
-                appObj = await getData("")
+                appObj = await getData("");
+                console.log(appObj)
                 if (appObj == undefined) {
                     console.log("error occurred")
                     const notification = new Notification({

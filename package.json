@@ -6,7 +6,7 @@
   },
   "name": "x3-toolbox",
   "version": "0.0.1",
-  "description": "a simple toolbox hotloader for all computers",
+  "description": "",
   "main": "main.js",
   "icon": "assets/icon.ico",
   "dependencies": {
@@ -21,12 +21,20 @@
   "author": "3hy",
   "license": "ISC",
   "build": {
+    "files": [
+      "assets/**",
+      "main.exe",
+      "main.js"
+    ],
     "productName": "X3 toolbox",
-    "appId": "x3.toolbox",
+    "appId": "com.x3-toolbox",
     "win": {
       "target": [
         "portable"
       ]
+    },
+    "directories": {
+      "output": "main"
     },
     "portable": {
       "artifactName": "X3-toolbox.exe"
