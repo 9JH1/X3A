@@ -8,7 +8,38 @@ import platform
 import os
 import signal
 import requests
+import math
 
+
+def hex_to_hsv(hex_code):
+    # Convert hex to RGB
+    hex_code = hex_code.lstrip('#')
+    r = int(hex_code[0:2], 16)
+    g = int(hex_code[2:4], 16)
+    b = int(hex_code[4:6], 16)
+    
+    # Convert RGB to HSV
+    r = float(r)
+    g = float(g)
+    b = float(b)
+    high = max(r, g, b)
+    low = min(r, g, b)
+    h, s, v = high, high, high
+
+    d = high - low
+    s = 0 if high == 0 else d/high
+
+    if high == low:
+        h = 0.0
+    else:
+        h = {
+            r: (g - b) / d + (6 if g < b else 0),
+            g: (b - r) / d + 2,
+            b: (r - g) / d + 4,
+        }[high]
+        h /= 6
+    
+    return (h, s, v)
 
 def get_accent_color():
     try:
@@ -32,12 +63,10 @@ def get_accent_color():
 
 app = flask.Flask(__name__)
 flask_cors.CORS(app)
-mode = int((str(str(str(ImageColor.getcolor(get_accent_color(), "HSV")).strip("()")).replace(" ","")).split(","))[2])
-if mode > 33:
+mode = int(hex_to_hsv(get_accent_color())[2])
+if mode <= 50:
     mode = "dark"
-elif mode < 66 and mode > 33:
-    mode = "neutral"
-elif mode > 66: 
+else:
     mode = "light"
 
 app_config = { 
