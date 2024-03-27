@@ -9,6 +9,7 @@ let appObj = ""
 
 
 const restartApp = () => {
+    app.relaunch()
     app.exit(0); // Exit the current instance of the app
 };
 
@@ -41,37 +42,6 @@ async function createWindow() {
 
     mainWindow.loadFile('assets/index.html')
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.whenReady().then(() => {
     (async () => {
         function mainApp() {
@@ -112,84 +82,10 @@ app.whenReady().then(() => {
             mainApp()
         }
     })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     app.on("before-quit", () => {
         getData("/off");
     });
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {
         app.quit()
