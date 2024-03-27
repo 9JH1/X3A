@@ -14,7 +14,7 @@ const restartApp = () => {
     const errorMessage = new Notification({
         title: "restarting",
         body: "app restarting",
-        icon: "assets/icon.ico"
+        icon: "icon.ico",
     })
     errorMessage.show()
 };
@@ -38,7 +38,7 @@ async function createWindow() {
             preload: path.join(__dirname, 'assets/loader.js'),
             ipcMain: true
         },
-        icon: path.join(__dirname, 'assets/icon.ico'),
+        icon: path.join(__dirname, 'icon.ico'),
         titleBarStyle: "hidden",
         titleBarOverlay: {
             color: "black",
@@ -48,6 +48,7 @@ async function createWindow() {
 
     mainWindow.loadFile('assets/index.html')
 }
+app.setAppUserModelId("X3-Toolbox")
 app.whenReady().then(() => {
     (async () => {
         function mainApp() {
