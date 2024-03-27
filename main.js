@@ -86,7 +86,7 @@ app.whenReady().then(() => {
                     createWindow();
                 }
             })();
-        }, 2000)
+        }, 3000)
 
 
     });

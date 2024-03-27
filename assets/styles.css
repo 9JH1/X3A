@@ -1,9 +1,8 @@
 :root {
     --background: black;
-    --foreground: #040404;
+    --foreground: #0e0e0e;
     --text-color: white;
-    --text-inactive-opacity: 50%;
-    --accent: rgb(255, 255, 255);
+    --text-inactive-opacity: 0.5;
     --color-on-accent: black;
 }
 
@@ -139,6 +138,19 @@ body {
         width: 100%;
         height: calc(100% - 110px);
         background-color: var(--foreground);
+        display: flex;
+
+        .file {
+            width: 35%;
+            height: 100%;
+
+        }
+
+        .location {
+            width: 65%;
+            height: 100%;
+            background: var(--background);
+        }
     }
 
     #options {
@@ -146,6 +158,7 @@ body {
         height: 30px;
         background-color: var(--background);
         display: flex;
+        justify-content: space-between;
 
         .side {
             margin-left: 10px;
@@ -159,8 +172,21 @@ body {
 
             svg {
                 margin-right: 20px;
+
+                path {
+                    fill: var(--accent);
+                }
             }
 
+        }
+
+        .landingpagetexttwo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            opacity: var(--text-inactive-opacity);
         }
 
     }

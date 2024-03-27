@@ -26,4 +26,5 @@ function getData(endpoint) {
     let dataObj = await getData("");
     dataObj = JSON.parse(dataObj);
     document.getElementById("username").innerText = dataObj["computer"]["username"];
+    document.documentElement.style.setProperty('--accent', dataObj["theme"]["raw"]);
 })();

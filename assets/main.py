@@ -7,6 +7,7 @@ import darkdetect
 import platform
 import os
 import signal
+import requests
 
 
 def get_accent_color():
@@ -61,12 +62,25 @@ print(app_config)
 def return_online_status(): 
     return flask.jsonify(app_config)
 
-@app.route(f"/off", methods=["GET"])
+@app.route(f"/off")
 def stopServer():
-    os.kill(os.getpid-(), signal.SIGINT)
+    os.kill(os.getpid(), signal.SIGINT)
     return flask.jsonify({"success": True, "message": "Server is shutting down..."})
 
+def url_ok(url):
+    try:
+        response = requests.head(url)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+    except requests.ConnectionError as e:
+        return e
 
 
 if __name__ == "__main__":
+    # driven code
+    while url_ok("http://127.0.0.1:22301") == True: 
+        url_ok("http://127.0.0.1:22301/off")
+    
     app.run(port=22301)
