@@ -43,7 +43,7 @@ document.getElementById("export").addEventListener("click", () => {
             const electron = window.require('electron');
             electron.ipcRenderer.send('restart'); // Send the "restart" command to main.js
         } else {
-            document.body.innerHTML = ""
+            document.body.innerHTML = "require commands only work in a compiled app and not in localhost :("
         }
     };
 

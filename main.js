@@ -11,6 +11,12 @@ let appObj = ""
 const restartApp = () => {
     app.relaunch()
     app.exit(0); // Exit the current instance of the app
+    const errorMessage = new Notification({
+        title: "restarting",
+        body: "app restarting",
+        icon: "assets/icon.ico"
+    })
+    errorMessage.show()
 };
 
 function getData(endpoint) {
@@ -76,8 +82,6 @@ app.whenReady().then(() => {
                 console.log("turning off ")
             }
             mainApp()
-
-
         } else {
             mainApp()
         }
@@ -92,6 +96,5 @@ app.on('window-all-closed', function () {
     }
 });
 ipcMain.on('restart', () => {
-    console.log("working")
     restartApp();
 });
