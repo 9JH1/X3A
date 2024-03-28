@@ -1,0 +1,10 @@
+{
+    "themename": {
+        "background": "red",
+        "foreground": "red",
+        "text-color": "red",
+        "text-inactive-opacity": "red",
+        "color-on-accent-light": "red",
+        "color-on-accent-dark": "red"
+    }
+}

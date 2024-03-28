@@ -16,6 +16,11 @@ function parseCSSVariables(cssString) {
 
     return result;
 }
+function renderThemes(themeName){ 
+    import data from './data.json';
+console.log(data);
+}
+renderThemes()
 function getData(endpoint) {
     return fetch(`http://127.0.0.1:22301${endpoint}`)
         .then((res) => res.text())
@@ -28,17 +33,10 @@ function getData(endpoint) {
     dataObj = JSON.parse(dataObj);
     document.getElementById("username").innerText = dataObj["computer"]["username"];
     document.documentElement.style.setProperty('--accent', dataObj["theme"]["raw"]);
-    if (dataObj["theme"]["mode"] == "light") {
-        document.documentElement.style.setProperty('--color-on-accent', "black");
-    } else {
-        document.documentElement.style.setProperty('--color-on-accent', "white");
-    }
 })();
 
 document.getElementById("export").addEventListener("click", () => {
-    // Function to send the "restart" IPC command
     const sendRestartCommand = () => {
-        // Check if we are running in Electron environment
         if (window.require) {
             const electron = window.require('electron');
             electron.ipcRenderer.send('restart'); // Send the "restart" command to main.js
@@ -46,8 +44,5 @@ document.getElementById("export").addEventListener("click", () => {
             document.body.innerHTML = "require commands only work in a compiled app and not in localhost :("
         }
     };
-
-
-    // Add event listener to the button
     sendRestartCommand();
 })
