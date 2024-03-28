@@ -1,17 +1,10 @@
-:root {
-    --background: black;
-    --foreground: #0e0e0e;
-    --text-color: white;
-    --text-inactive-opacity: 0.5;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 * {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
     font-size: 13px;
-
+    user-select: none;
 
 }
 
@@ -21,7 +14,7 @@ body {
     margin: 0;
     height: 100vh;
     background-color: var(--background);
-    border: solid 1px var(--accent);
+    border: solid 1px var(--accent-inline, var(--accent));
     box-sizing: border-box;
 
     #navbar {
@@ -57,7 +50,7 @@ body {
             justify-content: center;
             padding: 10px;
             box-sizing: border-box;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .version {
@@ -67,7 +60,8 @@ body {
 
 
             span {
-                background-color: var(--accent);
+                background-color: var(--accent-inline, var(--accent));
+                ;
                 border-radius: 10px;
                 padding: 3px 10px;
                 box-sizing: border-box;
@@ -118,8 +112,13 @@ body {
                 background: var(--background);
                 color: var(--text-color);
                 padding: 0px 10px;
+            }
 
-
+            svg {
+                path {
+                    fill: var(--text-color);
+                    opacity: var(--text-inactive-opacity);
+                }
             }
 
             .filter {
@@ -142,8 +141,6 @@ body {
                         margin-top: 60px;
                         background-color: red;
                     }
-
-
                 }
             }
 
@@ -155,7 +152,7 @@ body {
 
     #inner {
         width: 100%;
-        height: calc(100% - 130px);
+        height: calc(100% - 110px);
         background-color: var(--foreground);
         display: flex;
 
@@ -165,6 +162,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
 
             .text {
                 text-align: center;
@@ -180,12 +178,50 @@ body {
                     cursor: pointer;
                     margin: 0;
                     padding: 0;
-                    color: var(--accent);
+                    color: var(--accent-inline, var(--accent));
+                    ;
                 }
 
                 p {
                     margin: 0px;
                     opacity: 0.5;
+                }
+            }
+
+            .cover {
+                width: 100%;
+                height: 100%;
+
+                .item {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    padding: 7px 20px 7px 0px;
+                    box-sizing: border-box;
+                    border-bottom: solid 1px var(--background);
+
+                    .title {
+                        width: calc(100% - 26px);
+                        height: 100%;
+
+                    }
+
+                    .exit {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .checkbox {
+                            width: 13px;
+                            height: 13px;
+                            border: solid 1px red;
+                            margin-right: 20px;
+                        }
+
+                    }
                 }
             }
 
@@ -200,7 +236,7 @@ body {
 
     #options {
         width: 100%;
-        height: 50px;
+        height: 30px;
         background-color: var(--background);
         display: flex;
         justify-content: space-between;
@@ -219,7 +255,8 @@ body {
                 margin-right: 20px;
 
                 path {
-                    fill: var(--accent);
+                    fill: var(--accent-inline, var(--accent));
+                    ;
                 }
             }
 

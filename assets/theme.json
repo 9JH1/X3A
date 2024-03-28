@@ -1,10 +1,29 @@
 {
-    "themename": {
-        "background": "red",
-        "foreground": "red",
-        "text-color": "red",
-        "text-inactive-opacity": "red",
-        "color-on-accent-light": "red",
-        "color-on-accent-dark": "red"
-    }
+    "dark": {
+        "background": "black",
+        "foreground": "#0e0e0e",
+        "text-color": "white",
+        "text-inactive-opacity": 0.5,
+        "color-on-accent-light": "black",
+        "color-on-accent-dark": "white"
+    },
+    "light": {
+        "background": "white",
+        "foreground": "#ededed",
+        "text-color": "black",
+        "text-inactive-opacity": 0.5,
+        "color-on-accent-light": "black",
+        "color-on-accent-dark": "white",
+        "accent-inline": "#eb34a4"
+    },
+    "cooltheme": {
+        "background": "#4f4f4f",
+        "foreground": "brown",
+        "text-color": "blue",
+        "text-inactive-opacity": 0.5,
+        "color-on-accent-light": "black",
+        "color-on-accent-dark": "white",
+        "accent-inline": "yellow"
+    },
+    "!selected": "dark"
 }

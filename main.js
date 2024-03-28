@@ -2,10 +2,13 @@ const { app, BrowserWindow, Notification, ipcMain } = require('electron')
 const path = require("path");
 const { execFile } = require("child_process");
 const { create } = require('domain');
-
+const fs = require('fs');
 
 let startTime = null;
-let appObj = ""
+let appObj = "";
+let jsonObj;
+let jsonObjAccent = "";
+let jsonData;
 
 
 const restartApp = () => {
@@ -30,6 +33,10 @@ async function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 500,
+        minHeight: 500,
+        minWidth: 800,
+        maxHeight: 500,
+        maxWidth: 800,
         fullscreenable: false,
         maximizable: false,
         autoHideMenuBar: true,
@@ -43,8 +50,8 @@ async function createWindow() {
         icon: path.join(__dirname, 'icon.ico'),
         titleBarStyle: "hidden",
         titleBarOverlay: {
-            color: "black",
-            symbolColor: appObj["theme"]["raw"],
+            color: jsonObj["background"],
+            symbolColor: jsonObjAccent,
         },
     })
 
@@ -52,6 +59,12 @@ async function createWindow() {
 }
 app.setAppUserModelId("X3-Toolbox")
 app.whenReady().then(() => {
+    try {
+        const data = fs.readFileSync('assets/theme.json', 'utf8');
+        jsonData = JSON.parse(data);
+    } catch (error) {
+        console.error('Error reading JSON file:', error);
+    }
     (async () => {
         function mainApp() {
             startTime = Date.now();
@@ -67,6 +80,12 @@ app.whenReady().then(() => {
                         if (appObj != undefined) {
                             awaitServer.close()
                             appObj = JSON.parse(appObj)
+                            jsonObj = jsonData[jsonData["!selected"]];
+                            if (jsonObj["accent-inline"]) {
+                                jsonObjAccent = jsonObj["accent-inline"];
+                            } else {
+                                jsonObjAccent = appObj["theme"]["raw"]
+                            }
                             createWindow()
                             console.log(`server took ${(Date.now() - startTime) / 1000}s to launch`);
                         }

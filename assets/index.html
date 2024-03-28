@@ -7,7 +7,7 @@
     <title>X3-Toolbox</title>
     <script src="loader.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="theme.js" defer type="module"></script>
+    <script src="theme.js" type="module"></script>
 </head>
 
 <body>
@@ -42,13 +42,13 @@
     </div>
     </div>
     <div id="inner">
-        <div class="file">
+        <div class="file" id="file-viewer">
             <div class="text">
                 <p>Drop config.json file here</p>
                 <label for="file-upload" class="custom-file-upload">
                     or select file
                 </label>
-                <input id="file-upload" type="file" accept=".csv" />
+                <input id="file-upload" type="file" accept=".json" />
             </div>
         </div>
         <div class="seperator"></div>
