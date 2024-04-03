@@ -15,6 +15,7 @@ let jsonData;
 const restartApp = () => {
     app.relaunch()
     app.exit(0); // Exit the current instance of the app
+    getData("/off")
     const errorMessage = new Notification({
         title: "restarting",
         body: "app restarting",
