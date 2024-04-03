@@ -8,6 +8,7 @@ let startTime = null;
 let appObj = "";
 let jsonObj;
 let jsonObjAccent = "";
+let jsonObjBackground = "";
 let jsonData;
 
 
@@ -50,9 +51,11 @@ async function createWindow() {
         icon: path.join(__dirname, 'icon.ico'),
         titleBarStyle: "hidden",
         titleBarOverlay: {
-            color: jsonObj["background"],
+            color: jsonObjBackground,
             symbolColor: jsonObjAccent,
         },
+        transparent: true,
+        frame: false,
     })
 
     mainWindow.loadFile('assets/index.html')
@@ -82,9 +85,22 @@ app.whenReady().then(() => {
                             appObj = JSON.parse(appObj)
                             jsonObj = jsonData[jsonData["!selected"]];
                             if (jsonObj["accent-inline"]) {
-                                jsonObjAccent = jsonObj["accent-inline"];
+                                if (jsonObj["frame-icon-color-override"]) {
+                                    jsonObjAccent = jsonObj["frame-icon-color-override"];
+                                } else {
+                                    jsonObjAccent = jsonObj["accent-inline"];
+                                }
                             } else {
-                                jsonObjAccent = appObj["theme"]["raw"]
+                                if (jsonObj["frame-icon-color-override"]) {
+                                    jsonObjAccent = jsonObj["frame-icon-color-override"];
+                                } else {
+                                    jsonObjAccent = jsonObj["raw"];
+                                }
+                            }
+                            if (jsonObj["frame-background-override"]) {
+                                jsonObjBackground = jsonObj["frame-background-override"];
+                            } else {
+                                jsonObjBackground = jsonObj["background"];
                             }
                             createWindow()
                             console.log(`server took ${(Date.now() - startTime) / 1000}s to launch`);
