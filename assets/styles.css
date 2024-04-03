@@ -9,6 +9,8 @@
 
 html {
     background: rgba(0, 0, 0, 0.01);
+    pointer-events: none;
+
 }
 
 body {
@@ -19,7 +21,7 @@ body {
     color: var(--text-color);
     border: solid 1px var(--accent-inline, var(--accent));
     box-sizing: border-box;
-    border-radius: 10px 0px 10px 10px;
+    border-radius: var(--window-border-radius) 0px var(--window-border-radius) var(--window-border-radius);
 
 
     #navbar {
@@ -118,15 +120,14 @@ body {
                 border: none;
                 height: 50px;
                 width: calc(100% - 100px);
-                background: var(--background);
-                color: var(--text-color);
+                background: var(--search-bar-color);
+                color: var(--search-bar-text-color);
                 padding: 0px 10px;
             }
 
             svg {
                 path {
-                    fill: var(--text-color);
-                    opacity: var(--text-inactive-opacity);
+                    fill: var(--search-bar-icon-color);
                 }
             }
 
@@ -242,8 +243,8 @@ body {
         .location {
             width: 65%;
             height: 100%;
-            background: var(--file-color);
-            color: var(--file-text-color);
+            background: var(--location-color);
+            color: var(--location-text-color);
         }
     }
 

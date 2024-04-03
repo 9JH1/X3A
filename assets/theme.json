@@ -1,5 +1,5 @@
 {
-    "dark": {
+    "dark_minimal": {
         "background": "black",
         "foreground": "#0e0e0e",
         "text-color": "white",
@@ -7,7 +7,7 @@
         "color-on-accent-light": "black",
         "color-on-accent-dark": "white"
     },
-    "light": {
+    "light_minimal": {
         "background": "white",
         "foreground": "#ededed",
         "text-color": "black",
@@ -25,16 +25,21 @@
         "title-bar-text-color": "orange",
         "bottom-bar-color": "magenta",
         "bottom-bar-text-color": "pink",
-        "file-color": "darkgreen",
-        "file-text-color": "darkblue",
+        "file-color": "green",
+        "file-text-color": "white",
         "location-color": "yellow",
         "location-text-color": "cyan",
         "foreground": "brown",
         "text-inactive-opacity": 0.5,
         "color-on-accent-light": "white",
+        "search-bar-color": "red",
+        "search-bar-text-color": "green",
+        "search-bar-icon-color": "red",
         "color-on-accent-dark": "black",
         "frame-background-override": "green",
-        "frame-icon-color-override": "orange"
+        "frame-icon-color-override": "orange",
+        "accent-inline": "red",
+        "window-border-radius": "10px"
     },
     "!selected": "debug_theme"
 }
