@@ -85,26 +85,43 @@ app.whenReady().then(() => {
                             awaitServer.close()
                             appObj = JSON.parse(appObj)
                             jsonObj = jsonData[jsonData["!selected"]];
-                            if (jsonObj["accent-inline"]) {
-                                if (jsonObj["frame-icon-color-override"]) {
-                                    jsonObjAccent = jsonObj["frame-icon-color-override"];
+                            try {
+                                if (jsonObj["accent-inline"]) {
+                                    if (jsonObj["frame-icon-color-override"]) {
+                                        jsonObjAccent = jsonObj["frame-icon-color-override"];
+                                    } else {
+                                        jsonObjAccent = jsonObj["accent-inline"];
+                                    }
                                 } else {
-                                    jsonObjAccent = jsonObj["accent-inline"];
+                                    if (jsonObj["frame-icon-color-override"]) {
+                                        jsonObjAccent = jsonObj["frame-icon-color-override"];
+                                    } else {
+                                        jsonObjAccent = appObj["theme"]["raw"];
+                                    }
                                 }
-                            } else {
-                                if (jsonObj["frame-icon-color-override"]) {
-                                    jsonObjAccent = jsonObj["frame-icon-color-override"];
+                                if (jsonObj["frame-background-override"]) {
+                                    jsonObjBackground = jsonObj["frame-background-override"];
                                 } else {
-                                    jsonObjAccent = jsonObj["raw"];
+                                    jsonObjBackground = jsonObj["background"];
                                 }
+
+                                createWindow()
+                                console.log(`server took ${(Date.now() - startTime) / 1000}s to launch`);
+                            } catch {
+
+                                console.log("massive error in themes file, i dunno how to fix it good luck");
+                                const errorMessage = new Notification({
+                                    title: "Error",
+                                    body: "app couldn't initialize due to broken themes file",
+                                    icon: "icon.ico",
+                                })
+                                errorMessage.show();
+                                console.log("");
+                                console.log(jsonObj);
+                                console.log("");
+                                getData("/off")
+                                app.quit();
                             }
-                            if (jsonObj["frame-background-override"]) {
-                                jsonObjBackground = jsonObj["frame-background-override"];
-                            } else {
-                                jsonObjBackground = jsonObj["background"];
-                            }
-                            createWindow()
-                            console.log(`server took ${(Date.now() - startTime) / 1000}s to launch`);
                         }
                     })();
                 }, 1000)

@@ -1,23 +1,22 @@
 {
     "dark_minimal": {
-        "background": "black",
+        "background": "#000000",
         "foreground": "#0e0e0e",
-        "text-color": "white",
+        "text-color": "#FFFFFF",
         "text-inactive-opacity": 0.5,
-        "color-on-accent-light": "black",
-        "color-on-accent-dark": "white"
+        "color-on-accent-light": "#000000",
+        "color-on-accent-dark": "#FFFFFF"
     },
     "light_minimal": {
-        "background": "white",
+        "background": "#FFFFFF",
         "foreground": "#ededed",
-        "text-color": "black",
+        "text-color": "#000000",
         "text-inactive-opacity": 0.5,
-        "color-on-accent-light": "black",
-        "color-on-accent-dark": "white",
-        "accent-inline": "#eb34a4"
+        "color-on-accent-light": "#000000",
+        "color-on-accent-dark": "#FFFFFF"
     },
     "debug_theme": {
-        "background": "#4f4f4f",
+        "background": "#grey",
         "text-color": "blue",
         "navbar-color": "red",
         "navbar-text-color": "green",
@@ -30,7 +29,7 @@
         "location-color": "yellow",
         "location-text-color": "cyan",
         "foreground": "brown",
-        "text-inactive-opacity": 0.5,
+        "text-inactive-opacity": 0.7,
         "color-on-accent-light": "white",
         "search-bar-color": "red",
         "search-bar-text-color": "green",
@@ -41,5 +40,5 @@
         "accent-inline": "red",
         "window-border-radius": "10px"
     },
-    "!selected": "debug_theme"
+    "!selected": "light_minimal"
 }

@@ -20,7 +20,7 @@ body {
     color: var(--text-color);
     border: solid 1px var(--accent-inline, var(--accent));
     box-sizing: border-box;
-    border-radius: var(--window-border-radius) 0px var(--window-border-radius) var(--window-border-radius);
+    border-radius: var(--window-border-radius, 10px) 0px var(--window-border-radius, 10px) var(--window-border-radius, 10px);
 
 
     #navbar {
@@ -126,7 +126,7 @@ body {
 
             svg {
                 path {
-                    fill: var(--search-bar-icon-color);
+                    fill: var(--search-bar-icon-color, var(--text-color));
                 }
             }
 
