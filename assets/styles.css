@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 * {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font, 'Inter', sans-serif);
     font-size: 13px;
     user-select: none;
     overflow: hidden;
@@ -18,7 +18,7 @@ body {
     height: 100vh;
     background-color: var(--background);
     color: var(--text-color);
-    border: solid 1px var(--accent-inline, var(--accent));
+    border: solid var(--window-border-width, 1px) var(--accent-inline, var(--accent));
     box-sizing: border-box;
     border-radius: var(--window-border-radius, 10px) 0px var(--window-border-radius, 10px) var(--window-border-radius, 10px);
 
@@ -165,85 +165,167 @@ body {
         background-color: var(--foreground);
         display: flex;
 
-        .file {
-            width: 35%;
+        #side-bar {
+            width: 40px;
             height: 100%;
+            background-color: var(--side-bar-color, var(--background));
             display: flex;
+            justify-content: start;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             flex-wrap: wrap;
-            background: var(--file-color);
+            padding-top: 10px;
 
-            color: var(--file-text-color);
+            .item {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-            .text {
-                text-align: center;
-                height: fit-content;
+                svg {
+                    fill: var(--side-bar-item-icon-color, var(--inline-accent, var(--accent)));
 
-                input[type="file"] {
-                    display: none;
-
-                }
-
-                .custom-file-upload {
-                    display: inline-block;
-                    cursor: pointer;
-                    margin: 0;
-                    padding: 0;
-                    color: var(--accent-inline, var(--accent));
-                    ;
-                }
-
-                p {
-                    margin: 0px;
-                    opacity: 0.5;
+                    path {
+                        fill: var(--side-bar-item-icon-color, var(--inline-accent, var(--accent)));
+                        stroke: var(--side-bar-item-icon-color, var(--inline-accent, var(--accent)));
+                    }
                 }
             }
 
-            .cover {
-                width: 100%;
+            .item:hover {
+                background-color: var(--side-bar-item-hover, var(--accent-inline, var(--accent)));
+
+                svg {
+                    fill: var(--side-bar-icon-hover, (--background));
+
+                    path {
+                        stroke: var(--side-bar-item-icon-hover, var(--background));
+                        fill: var(--side-bar-item-icon-hover, (--background));
+                    }
+                }
+            }
+
+            .active-item-side-bar-item {
+                background-color: var(--active-item-side-bar-item-color, var(--accent-inline, var(--accent)));
+
+                svg {
+                    fill: var(--active-item-side-bar-item-icon-color, var(--background));
+
+                    path {
+
+                        fill: var(--active-item-side-bar-item-icon-color, var(--background));
+                        stroke: var(--active-item-side-bar-item-icon-color, var(--background));
+
+                    }
+                }
+            }
+        }
+
+        #inner-inner {
+            display: flex;
+            width: calc(100% - 40px);
+
+            .file {
+                width: 35%;
                 height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                background: var(--file-color);
 
-                .item {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                color: var(--file-text-color);
 
-                    padding: 7px 20px 7px 0px;
-                    box-sizing: border-box;
-                    border-bottom: solid 1px var(--background);
+                .text {
+                    text-align: center;
+                    height: fit-content;
 
-                    .title {
-                        width: calc(100% - 26px);
-                        height: 100%;
+                    input[type="file"] {
+                        display: none;
 
                     }
 
-                    .exit {
-                        height: 100%;
+                    .custom-file-upload {
+                        display: inline-block;
+                        cursor: pointer;
+                        margin: 0;
+                        padding: 0;
+                        color: var(--accent-inline, var(--accent));
+                        ;
+                    }
+
+                    p {
+                        margin: 0px;
+                        opacity: 0.5;
+                    }
+                }
+
+                .cover {
+                    width: 100%;
+                    height: 100%;
+
+                    .item {
+                        width: 100%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
 
-                        .checkbox {
-                            width: 13px;
-                            height: 13px;
-                            border: solid 1px red;
-                            margin-right: 20px;
+                        padding: 7px 20px 7px 0px;
+                        box-sizing: border-box;
+                        border-bottom: solid 1px var(--background);
+
+                        .title {
+                            width: calc(100% - 26px);
+                            height: 100%;
+
                         }
 
+                        .exit {
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .checkbox {
+                                width: 13px;
+                                height: 13px;
+                                border: solid 1px red;
+                                margin-right: 20px;
+                            }
+
+                        }
                     }
                 }
+
             }
 
-        }
+            .location {
+                width: 65%;
+                height: 100%;
+                background: var(--location-color);
+                color: var(--location-text-color);
+            }
 
-        .location {
-            width: 65%;
-            height: 100%;
-            background: var(--location-color);
-            color: var(--location-text-color);
+            .settings-container {
+                width: 100%;
+                height: 100%;
+                background-color: var(--settings-page-color, var(--foreground));
+
+                .setting {
+                    width: calc(100% - 40px);
+                    height: fit-content;
+                    margin: 10px;
+                    padding: 10px;
+                    background-color: var(--setting-color, var(--background));
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-radius: 7px;
+                }
+            }
         }
     }
 

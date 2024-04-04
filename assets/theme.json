@@ -4,16 +4,16 @@
         "foreground": "#0e0e0e",
         "text-color": "#FFFFFF",
         "text-inactive-opacity": 0.5,
-        "color-on-accent-light": "#000000",
+        "color-on-accent-light": "#F0F0F0",
         "color-on-accent-dark": "#FFFFFF"
     },
     "light_minimal": {
         "background": "#FFFFFF",
-        "foreground": "#ededed",
+        "foreground": "#c4c4c4  ",
         "text-color": "#000000",
         "text-inactive-opacity": 0.5,
-        "color-on-accent-light": "#000000",
-        "color-on-accent-dark": "#FFFFFF"
+        "color-on-accent-light": "#FFFFFF",
+        "color-on-accent-dark": "#000000"
     },
     "debug_theme": {
         "background": "#grey",
@@ -38,7 +38,17 @@
         "frame-background-override": "green",
         "frame-icon-color-override": "orange",
         "accent-inline": "red",
-        "window-border-radius": "10px"
+        "window-border-radius": "10px",
+        "font": "system-ui",
+        "side-bar-color": "red",
+        "side-bar-item-color": "red",
+        "side-bar-item-icon-color": "orange",
+        "side-bar-item-icon-hover": "green",
+        "side-bar-item-hover": "purple",
+        "active-item-side-bar-item-color": "yellow",
+        "active-item-side-bar-item-icon-color": "crimson",
+        "settings-page-color": "red",
+        "setting-color": "red"
     },
-    "!selected": "light_minimal"
+    "!selected": "dark_minimal"
 }
