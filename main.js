@@ -3,14 +3,13 @@ const path = require("path");
 const { execFile } = require("child_process");
 const { create } = require('domain');
 const fs = require('fs');
-
 let startTime = null;
 let appObj = "";
 let jsonObj;
 let jsonObjAccent = "";
 let jsonObjBackground = "";
 let jsonData;
-
+// commenty comment
 
 const restartApp = () => {
     app.relaunch()
